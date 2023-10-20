@@ -1,9 +1,10 @@
 import extract
-import load
 import transform
+import load
+
 
 def main():
-	print(extract.execute_extract("table.csv"))
+	load.execute_load("table.csv")
 
 if __name__ == "__main__":
 	main()

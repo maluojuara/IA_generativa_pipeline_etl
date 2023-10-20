@@ -21,4 +21,3 @@ def execute_extract(file_path):
 			users.append(user)
 	
 	return users
-
