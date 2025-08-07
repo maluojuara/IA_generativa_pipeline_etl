@@ -1,8 +1,8 @@
 import extract
 import openai
+import os
 
-API_KEY = "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"
-openai.api_key = API_KEY
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def generate_message_ai(user):
 	completion = openai.ChatCompletion.create(
@@ -23,9 +23,8 @@ def execute_transform(file_path):
 
 	for user in users:
 		news = generate_message_ai(user)
-		user['news'].append({
+		user.setdefault('news', []).append({
 			"icon": "https://digitalinnovationone.github.io/santander-dev-week-2023-api/icons/credit.svg",
 			"description": news
 		})
-
 	return users
